@@ -1,0 +1,11 @@
+# Skip all TeX AUX-Files
+*.aux
+*.bbl
+*.blg
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.blg
+*.synctex.gz

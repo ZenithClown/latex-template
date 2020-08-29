@@ -1,0 +1,87 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%		Author:		Debmalya Pramanik									%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt, a4paper, twoside, singlespacing]{report} % add singlespacing if Required
+
+%%% --- Setting Page Geometry --- %%%
+\usepackage[
+	inner = 1.7cm, % Inner Margin
+	outer = 1.8cm, % Outer Margin
+	% setting top-bottom Margins
+	top = 2.5cm,
+	bottom = 2.5cm
+]{geometry}
+
+%%% --- All Important/Popular Packages --- %%%
+\usepackage{nth}                % use \nth{<number>}
+% \usepackage{cite}               % for Citations using BibTeX
+\usepackage{csquotes}           % Enables \enquotes{} Commands
+\usepackage{booktabs}           % for making tables - look Better!
+% \usepackage{tocbibind}          % Automatically add List of Figures and Tables to ToC
+\usepackage[none]{hyphenat}     % Usage \nohyphens{<long-length-word>}
+\usepackage[dvipsnames]{xcolor} % Custom Colors | See Color Defination Example in config
+
+%%% --- Math Related Packages --- %%%
+\usepackage{gensymb}
+\usepackage{mathtools}
+\usepackage[inline]{enumitem}                   % in-Line Items
+\usepackage{amsmath, amsthm, amssymb, amsfonts} % Maths & Equations Package
+
+%%% --- Figure Related Packages --- %%%
+\usepackage{float}      % Forces figure in the current position with argument begin{figure}[H]
+\usepackage{caption}    % auto adds the caption with fig. numbering in list-of-figures
+\usepackage{subcaption} % for two side-by-side pictures
+
+%%% --- Enable GRAPHICX Package --- %%%
+\usepackage{graphicx} \graphicspath{{gfx/}} % Graphics is imported from ./gfx/<file>
+
+%%% --- Other Important Configurations --- %%%
+
+% config.tex Contains User Defined Commands - Check Usage
+\input{"./config.tex"} % Include all the Custom-Commands
+
+% Abbreviations and Nomenclature File is Imported as Follows - which uses the package acro
+\usepackage{acro}
+
+\input{"./frontmatter/nomenclature.tex"}
+\input{"./frontmatter/abbreviations.tex"}
+
+%%% --- hyper-parameters package to be called at Last --- %%%
+\usepackage[hidelinks, bookmarksopen = true, bookmarksdepth = 2]{hyperref} % DONOT Highlight URLs
+\AtBeginDocument{
+	\hypersetup{ % Hyper-Parameter Setup for Acrobat
+		% all the commands are by default initialized in config.tex
+		pdftitle    = {\DocumentTitle},
+		pdfauthor   = {\AuthorName},
+		pdfsubject  = {\subject},
+		pdfcreator  = {\AuthorName},
+		pdfproducer = {\AuthorName},
+		pdfkeywords = {\keywords},
+	}
+}
+
+\hypersetup{
+	pdfstartview = {XYZ null null 0.95} % Set Acrobat Default Display Size (1 = 100%)
+}
+
+\begin{document}
+	\vspace*{\fill}
+	\begin{center}
+		\LaTeX Template Created by \AuthorName. \\[21pt]
+	\end{center}
+	You can use \textit{any-color with \textbf{xcolor}} pkg as:
+	\begin{itemize}
+		\item {\color{red} Red Color},
+		\item {\color{blue} Blue Color},
+		\item \textcolor{semi-gray}{Custom from \textit{config}},
+		\item \textcolor{custom-hex}{Custom HEX from \textit{config}}
+	\end{itemize}
+	\vspace*{\fill}
+		
+	% Reference File - FAILS TO COMPILE IF no Reference is Given
+	% \bibliographystyle{IEEEtran}
+	% \bibliography{./backmatter/references}
+\end{document}
